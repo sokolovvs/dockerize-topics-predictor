@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  tps:
+    restart: always
+    build: ./src/tps
+    working_dir: /tps
+    volumes:
+      - ./src/tps:/tps
+    ports:
+      - "5000:5000"
+    networks:
+      - localnet
+
+networks:
+  localnet:
+    driver: bridge
