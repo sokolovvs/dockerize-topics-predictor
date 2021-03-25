@@ -1,8 +1,7 @@
 version: '3.3'
 
 services:
-  tps:
-    restart: always
+  tps: #topic predictor service
     build: ./src/tps
     working_dir: /tps
     volumes:
