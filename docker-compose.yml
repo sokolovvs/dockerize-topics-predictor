@@ -7,7 +7,7 @@ services:
     volumes:
       - ./src/tps:/tps
     ports:
-      - "5000:5000"
+      - ${TPS_PORT}:${TPS_PORT}
     networks:
       - localnet
 
