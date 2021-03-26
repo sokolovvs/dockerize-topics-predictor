@@ -3,6 +3,9 @@
 rootPath=`pwd`
 pathToSrc="${rootPath}/src"
 
+echo "try update dockerize project"
+git pull
+
 echo "try copy .env from dockerize project"
 cp .env.example .env
 
