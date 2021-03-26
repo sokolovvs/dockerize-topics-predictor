@@ -1,10 +1,10 @@
-##To start this project you should use the next command:
+## To start this project you should use the next command:
 
 ```shell
 make start
 ```
 
-###.env files to configure:
+### .env files to configure:
 [dockerize](.env)
 
 [tps](./src/tps/.env)
