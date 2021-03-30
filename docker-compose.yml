@@ -22,7 +22,7 @@ services:
     networks:
       - localnet
   messenger-async:
-    command: php bin/console messenger:consume async -vvv
+    command: php bin/console messenger:consume async -vv
     restart: always
     build:
       context: ./services/messenger-async

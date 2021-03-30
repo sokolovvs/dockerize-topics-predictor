@@ -14,7 +14,7 @@ jwt-keys:
 		openssl genrsa -out ./src/app-for-purchasing-service/config/jwt/private.pem -aes256 4096
 		openssl rsa -pubout -in ./src/app-for-purchasing-service/config/jwt/private.pem -out ./src/app-for-purchasing-service/config/jwt/public.pem
 messenger-async:
-		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console messenger:consume async -vvv"
+		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console messenger:consume async -vv"
 db-migrate:
 		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console doctrine:migrations:migrate --no-interaction"
 db-mig-rollb-prev:
