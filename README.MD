@@ -14,12 +14,19 @@ make start
 ```shell
 id -u && id -g
 ```
+
 ### At first run app you should use
+
 ```shell
 make jwt-keys
 ```
+
 ### to generate keys for auth
+
 ___
 
 ## The full commands list is [here](./Makefile)
+
+### You can use [portainer](http://localhost:9000) to manage containers and to read logs
+
 

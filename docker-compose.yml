@@ -29,8 +29,6 @@ services:
       args:
         HOST_UID: ${HOST_UID}
         HOST_GID: ${HOST_GID}
-    environment:
-      PHP_IDE_CONFIG: "serverName=Docker"
     volumes:
       - ./src/app-for-purchasing-service:/var/www/purchase-tps
       - ./services/purchase-tps/php.ini:/usr/local/etc/php/php.ini
@@ -74,6 +72,18 @@ services:
       - "6379:6379"
     volumes:
       - ./volumes/redis:/data
+    networks:
+      - localnet
+  portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./volumes/portainer_data:/data
     networks:
       - localnet
 

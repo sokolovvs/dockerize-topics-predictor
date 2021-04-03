@@ -20,8 +20,3 @@ db-migrate:
 		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console doctrine:migrations:migrate --no-interaction"
 db-mig-rollb-prev:
 		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console doctrine:migrations:migrate prev --no-interaction"
-# TPS
-tps-del-log:
-		docker ps -aq --filter="name=dockerize-topics-predictor_tps" | xargs -I'{}' docker exec -t '{}' bash -c "truncate -s 0 /tps/error.log"
-tps-show-log:
-		docker ps -aq --filter="name=dockerize-topics-predictor_tps" | xargs -I'{}' docker exec -t '{}' bash -c "cat /tps/error.log"
