@@ -15,18 +15,10 @@ make start
 id -u && id -g
 ```
 
-### At first run app you should use
-
-1. TO execute
+### At first run the app you should execute
 
 ```shell
 make jwt-keys
-```
-
-2. To save your input to [app for purchase service .env](./src/app-for-purchasing-service/.env)
-
-```dotenv
-JWT_PASS=$input
 ```
 
 ### to generate keys for auth
