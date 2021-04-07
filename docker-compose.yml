@@ -2,7 +2,9 @@ version: '3.3'
 
 services:
   tps:
-    build: ./src/tps
+    build:
+      context: ./src/tps
+      dockerfile: ../../services/tps/Dockerfile
     working_dir: /tps
     volumes:
       - ./src/tps:/tps
