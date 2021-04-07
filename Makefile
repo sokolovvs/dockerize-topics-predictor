@@ -1,5 +1,6 @@
 start:
 		bash ./installation.sh
+		cd ./src/tps && bash ./pre-start-check.sh && cd .
 		docker-compose up --build --remove-orphans -d #--scale messenger-async=2
 		make composer-i
 		make db-migrate
