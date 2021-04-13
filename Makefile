@@ -5,17 +5,17 @@ start:
 		make composer-i
 		make db-migrate
 stop:
-		docker ps -aq --filter="name=dockerize-topics-predictor" | xargs -r docker stop
+		docker ps -aq --filter="name=dockerize-tps-dev" | xargs -r docker stop
 # Purchase TPS
 composer-i:
-		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "composer install --no-interaction --prefer-dist"
+		docker ps -aq --filter="name=dockerize-tps-dev_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "composer install --no-interaction --prefer-dist"
 clear-cache:
-		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console cache:clear"
+		docker ps -aq --filter="name=dockerize-tps-dev_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console cache:clear"
 jwt-keys:
 		bash ./generate-jwt-secrets.sh
 messenger-async:
-		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console messenger:consume async -vv"
+		docker ps -aq --filter="name=dockerize-tps-dev_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console messenger:consume async -vv"
 db-migrate:
-		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console doctrine:migrations:migrate --no-interaction"
+		docker ps -aq --filter="name=dockerize-tps-dev_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console doctrine:migrations:migrate --no-interaction"
 db-mig-rollb-prev:
-		docker ps -aq --filter="name=dockerize-topics-predictor_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console doctrine:migrations:migrate prev --no-interaction"
+		docker ps -aq --filter="name=dockerize-tps-dev_purchase-tps" | xargs -I'{}' docker exec -t '{}' bash -c "php bin/console doctrine:migrations:migrate prev --no-interaction"
