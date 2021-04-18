@@ -23,6 +23,12 @@ make jwt-keys
 
 ### to generate keys for auth
 
+### You can generate admin with next command \[container dockerize-tps-dev_purchase-tps]
+
+```shell
+php bin/console make:admin
+```
+
 ___
 
 ## The full commands list is [here](./Makefile)
